@@ -26,16 +26,21 @@
                 ({{ data['vote_count'] }} avaliações)
             </div>
             <p id="movie_release_date">Data de lançamento: {{ data['release_date'] }}</p>
-            <h2 id="similar_movies">Filmes semelhantes</h2>       
+                   
         </div>
-
-        <div class="movies">
-            {% for movie in similar %}
-                <li>
-                    <a href="{{ url_for('movie_details', movie_name=similar[movie][2]) }}"><img src="https://image.tmdb.org/t/p/w500/{{ similar[movie][1] }}"></a>
-                    <p>{{ similar[movie][0] }}</p>
-                </li>
-            {% endfor %}
+        
+        <div class="container">
+            <h2 id="similar_movies">Filmes semelhantes</h2>
+            <div class="movies">
+                {% for movie in similar %}
+                    {% if similar[movie][1] %}
+                        <li>
+                            <a href="{{ url_for('movie_details', movie_name=similar[movie][2]) }}"><img src="https://image.tmdb.org/t/p/w500/{{ similar[movie][1] }}"></a>
+                            <p>{{ similar[movie][0] }}</p>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 

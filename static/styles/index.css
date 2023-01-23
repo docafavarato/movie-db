@@ -37,3 +37,33 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
     font-size: 1.5em !important;
     margin-top: auto !important;
 }
+
+@media only screen and (max-width: 600px) {
+    .movies { 
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .movies li {
+        transition-duration: 0.4s;
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        list-style: none !important;
+        text-align: center !important;
+    }
+    
+    .movies li img {
+        transition-duration: 0.4s;
+        max-width: 100px !important;
+        border-radius: 12px !important;
+    }
+    
+    .movies li h2{
+        color: white !important;
+        font-size: 0.7em !important;
+        margin-top: auto !important;
+    }
+  }

@@ -43,7 +43,7 @@ def movie_details_(query):
     request = tmdb.Movies(query)
     movie = request.info(language='pt-br')
     movie_info = {}
-
+    
     movie_info['title'] = request.title
     movie_info['overview'] = request.overview
     movie_info['poster_path'] = request.poster_path
@@ -51,7 +51,7 @@ def movie_details_(query):
     movie_info['vote_average']= '{:.1f}'.format(request.vote_average)
     movie_info['int_vote_average']= int(request.vote_average)
     movie_info['vote_count'] = request.vote_count
-    movie_info['release_date'] = request.release_date
+    movie_info['release_date'] = request.release_date.replace('-', '/')
 
     return movie_info
 

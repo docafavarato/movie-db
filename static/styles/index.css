@@ -5,6 +5,8 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
 
 #navLogo {color: white !important;}
 #popular {margin-left: 1% !important;}
+#genre {margin-left: 1% !important;}
+#search {margin-left: 1% !important;}
 
 .movies { 
     width: 100% !important;

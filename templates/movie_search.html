@@ -2,6 +2,7 @@
 {% block title %}f{% endblock %}
 {% block body %}
 {{ super() }}
+<h1 id="search">Resultados para {{ search }}</h1>
 <div class="movies">
     {% for movie in search_data %}
         {% if search_data[movie][1] %}

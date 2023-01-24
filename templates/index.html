@@ -13,25 +13,41 @@
 <body>
   {% block body %}
     <div class="search">
-        <nav class="navbar navbar-expand-lg bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="{{ url_for('index') }}" id="navLogo">MovieDB</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="d-flex" role="search" method="post">
-                  <input class="form-control me-2" type="search" placeholder="Nome do filme" aria-label="Search" name="movie_name">
-                  <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                </form>
-              </div>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('index') }}">Movie DB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ url_for('by_genre', genre=27) }}">Terror</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('by_genre', genre=878) }}">Ficção</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('by_genre', genre=12) }}">Aventura</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('by_genre', genre=16) }}">Animação</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('by_genre', genre=35) }}">Comédia</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" method="post">
+              <input class="form-control me-2" type="search" placeholder="Nome do filme" aria-label="Search" name="movie_name">
+              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
     </div>
     <br>
+  {% endblock %}
 
-    
-    
     <h1 id="popular">Populares</h1>
     <div class="movies">
         {% for movie in data %}
@@ -43,6 +59,5 @@
           {% endif %}
         {% endfor %}
     </div>
-    {% endblock %}
 </body>
 </html>

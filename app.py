@@ -13,7 +13,7 @@ def index():
 def index_post():
     movie_name = request.form.get('movie_name')
     data = search_movie(movie_name)
-    return render_template('index.html', search_data=data)
+    return render_template('movie_search.html', search_data=data)
 
 @app.route('/<movie_name>')
 def movie_details(movie_name):
@@ -22,4 +22,9 @@ def movie_details(movie_name):
     trailer = movie_trailer(movie_name)
     return render_template('movie_details.html', data=data, similar=similar, trailer=trailer)
 
-app.run(debug=True)
+@app.errorhandler(500)
+def not_found(e):
+    return render_template('500.html')
+
+
+app.run()

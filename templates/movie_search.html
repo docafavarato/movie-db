@@ -1,0 +1,15 @@
+{% extends "index.html" %}>
+{% block title %}f{% endblock %}
+{% block body %}
+{{ super() }}
+<div class="movies">
+    {% for movie in search_data %}
+        {% if search_data[movie][1] %}
+          <li>
+              <a href="{{ url_for ('movie_details', movie_name=search_data[movie][2]) }}" target="_blank"><img src="https://image.tmdb.org/t/p/w500/{{ search_data[movie][1] }}"></a> 
+              <h2>{{ search_data[movie][0] }}</h2>
+          </li>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

@@ -55,6 +55,27 @@ def movie_details_(query):
 
     return movie_info
 
+def movie_trailer(query):
+    req = requests.get(f'https://api.themoviedb.org/3/movie/{query}/videos?api_key=937aba2a3907c25e0509540bbe39f3a8')
+    data = req.json()
+    links = []
+    count = 0
+    for i in data['results']:
+        match data['results'][count]['site']:
+            case 'YouTube':
+                links.append(f'''https://youtube.com/embed/{data['results'][count]['key']}''')
+                        
+            case 'Vimeo':
+                links.append(f'''https://vimeo.com/{data['results'][count]['key']}''')
+
+        count += 1
+
+        if len(links) == 8:
+            break
+
+    return links
+
+
 def search_movie(query):
     tmdb.API_KEY = '937aba2a3907c25e0509540bbe39f3a8'
     search = tmdb.Search()
@@ -66,3 +87,6 @@ def search_movie(query):
         count += 1
 
     return movies
+
+
+print(movie_trailer(678))

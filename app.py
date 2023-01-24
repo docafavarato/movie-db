@@ -1,4 +1,4 @@
-from models import retrieve_popular, movie_details_, search_movie, retrieve_similar
+from models import retrieve_popular, movie_details_, search_movie, retrieve_similar, movie_trailer
 from flask import Flask, render_template, request
 import tmdbsimple as tmdb
 
@@ -19,6 +19,7 @@ def index_post():
 def movie_details(movie_name):
     data = movie_details_(movie_name)
     similar = retrieve_similar(movie_name)
-    return render_template('movie_details.html', data=data, similar=similar)
+    trailer = movie_trailer(movie_name)
+    return render_template('movie_details.html', data=data, similar=similar, trailer=trailer)
 
 app.run(debug=True)

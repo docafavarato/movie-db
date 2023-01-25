@@ -20,7 +20,11 @@ def retrieve_popular():
             data = future.result()
             for i in range(19):
                 try:
-                    movies[data['results'][i]['title']] = [data['results'][i]['overview'], data['results'][i]['poster_path'], data['results'][i]['release_date'], data['results'][i]['id']]
+                    if len(data['results'][i]['title']) > 23:
+                        fixed_title = f'''{data['results'][i]['title'][:20]}..'''
+                    else:
+                        fixed_title = data['results'][i]['title'][:20]
+                    movies[data['results'][i]['title']] = [data['results'][i]['overview'], data['results'][i]['poster_path'], data['results'][i]['release_date'], data['results'][i]['id'], fixed_title]
                 except:
                     continue
 
@@ -111,4 +115,3 @@ def search_movie(query):
         count += 1
 
     return movies
-

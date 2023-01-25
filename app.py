@@ -15,12 +15,17 @@ def index_post():
     data = search_movie(movie_name)
     return render_template('movie_search.html', search_data=data, search=movie_name)
 
-@app.route('/<movie_name>')
+@app.route('/<movie_name>', methods=['GET', 'POST'])
 def movie_details(movie_name):
-    data = movie_details_(movie_name)
-    similar = retrieve_similar(movie_name)
-    trailer = movie_trailer(movie_name)
-    return render_template('movie_details.html', data=data, similar=similar, trailer=trailer)
+    if request.method == 'POST':
+        movie_name = request.form.get('movie_name')
+        data = search_movie(movie_name)
+        return render_template('movie_search.html', search_data=data, search=movie_name)
+    elif request.method == 'GET':
+        data = movie_details_(movie_name)
+        similar = retrieve_similar(movie_name)
+        trailer = movie_trailer(movie_name)
+        return render_template('movie_details.html', data=data, similar=similar, trailer=trailer)
 
 @app.route('/gêneros/<genre>', methods=['GET', 'POST'])
 def by_genre(genre):
@@ -37,8 +42,6 @@ def by_genre(genre):
         return render_template('filtered_genre.html', genre_data=genre_data, genre_name=genre_names[genre])
 
         
-
-
 @app.errorhandler(500)
 def not_found(e):
     return render_template('500.html')

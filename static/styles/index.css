@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+* {box-sizing: border-box;}
 .search {color: white !important;}
 body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !important; color: white !important;}
 
@@ -26,8 +27,10 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
 
 .movies li img {
     transition-duration: 0.4s;
+    min-width: 300px;
     max-width: 300px !important;
     min-height: 450px !important;
+    max-height: 450px !important;
     border-radius: 12px !important;
 }
 
@@ -73,10 +76,6 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
 
 #movie_name {margin-left: 37% !important; margin-top: -45% !important; font-family: Poppins;}
 #movie_thumb {width: 35% !important; height: auto !important;}
-
-
-body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !important;}
-
 #movie_name {margin-left: 37% !important; margin-top: -45% !important; font-family: Poppins;}
 #movie_desc {margin-left: 37% !important; font-family: Poppins;}
 #movie_rate {margin-left: 37% !important; font-family: Poppins;}
@@ -120,7 +119,7 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
     margin-top: auto !important;
 }
 
-#videocontainer {margin-top: 15% !important;}
+#videocontainer {margin-top: 15% !important; height: 200px !important;}
 
 #videos {text-align: center;}
 .movie-videos {
@@ -134,7 +133,8 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
     content: "";
     padding-top: 56.25%;
 }
-  
+
+.providers {margin-top: 15%; text-align: center;}
 
 
 @media only screen and (max-width: 1800px) {

@@ -28,7 +28,7 @@
                     {% if similar[movie][1] %}
                         <li>
                             <a href="{{ url_for('movie_details', movie_name=similar[movie][2]) }}"><img src="https://image.tmdb.org/t/p/w500/{{ similar[movie][1] }}"></a>
-                            <p>{{ similar[movie][0] }}</p>
+                            <p>{{ similar[movie][3] }}</p>
                         </li>
                     {% endif %}
                 {% endfor %}
@@ -58,8 +58,16 @@
                               <span class="visually-hidden">Next</span>
                             </button>
                           </div>
-                        
                     </div>
+                </div>
+        {% endif %}
+
+        {% if providers %}
+            <div class="providers">
+                <h1>Onde assistir</h1>
+                {% for provider in providers %}
+                    <a href="{{ providers[provider][1] }}"><img src="https://image.tmdb.org/t/p/w500/{{ providers[provider][0] }}" width="60" height="60"></a>
+                {% endfor %}
             </div>
         {% endif %}
     </div>

@@ -1,4 +1,4 @@
-from models import retrieve_popular, movie_details_, search_movie, retrieve_similar, movie_trailer, retrieve_by_genre
+from models import retrieve_popular, movie_details_, search_movie, retrieve_similar, movie_trailer, retrieve_by_genre, movie_providers
 from flask import Flask, render_template, request
 import tmdbsimple as tmdb
 
@@ -25,7 +25,8 @@ def movie_details(movie_name):
         data = movie_details_(movie_name)
         similar = retrieve_similar(movie_name)
         trailer = movie_trailer(movie_name)
-        return render_template('movie_details.html', data=data, similar=similar, trailer=trailer)
+        providers = movie_providers(movie_name)
+        return render_template('movie_details.html', data=data, similar=similar, trailer=trailer, providers=providers)
 
 @app.route('/gêneros/<genre>', methods=['GET', 'POST'])
 def by_genre(genre):

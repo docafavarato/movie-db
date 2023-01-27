@@ -5,6 +5,7 @@ Site de filmes feito com Flask consumindo a API de https://api.themoviedb.org. F
 - Página dinâmica para cada filme com informações sobre o mesmo (Nome, descrição, avaliação, quantidade de avaliações, data de lançamento, vídeos, serviços de streaming)
 - Recomendação de filmes semelhantes ao selecionado
 - Sistema de busca dos filmes
+- Sistema de filtro por gênero
 
 ![1](https://user-images.githubusercontent.com/98183878/215221041-cece34f4-1b12-4a8c-a972-7eec3721b5f6.png)
 ![2](https://user-images.githubusercontent.com/98183878/215221050-1b6e3c85-dd15-4e57-9808-5fc246e3070d.png)

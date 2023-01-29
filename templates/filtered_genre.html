@@ -8,7 +8,7 @@
         {% if genre_data[movie][1] %}
           <li>
               <a href="{{ url_for ('movie_details', movie_name=genre_data[movie][3]) }}" target="_blank"><img src="https://image.tmdb.org/t/p/w500/{{ genre_data[movie][1] }}"></a> 
-              <h2>{{ movie }}</h2>
+              <h2>{{ genre_data[movie][4] }}</h2>
           </li>
         {% endif %}
     {% endfor %}

@@ -24,7 +24,7 @@ class Movies:
                         if len(data['results'][i]['title']) > 23:
                             fixed_title = f'''{data['results'][i]['title'][:20]}..'''
                         else:
-                            fixed_title = data['results'][i]['title'][:20]
+                            fixed_title = data['results'][i]['title']
                         movies[data['results'][i]['title']] = [data['results'][i]['overview'], data['results'][i]['poster_path'], data['results'][i]['release_date'], data['results'][i]['id'], fixed_title]
                     except:
                         continue
@@ -52,7 +52,7 @@ class Movies:
                         if len(data['results'][i]['title']) > 23:
                             fixed_title = f'''{data['results'][i]['title'][:20]}..'''
                         else:
-                            fixed_title = data['results'][i]['title'][:20]
+                            fixed_title = data['results'][i]['title']
                         movies[data['results'][i]['title']] = [data['results'][i]['overview'], data['results'][i]['poster_path'], data['results'][i]['release_date'], data['results'][i]['id'], fixed_title]
                     except:
                         continue
@@ -69,7 +69,7 @@ class Movies:
                 if len(data['results'][i]['title']) > 23:
                     fixed_title = f'''{data['results'][i]['title'][:20]}..'''
                 else:
-                    fixed_title = data['results'][i]['title'][:20]
+                    fixed_title = data['results'][i]['title']
                 movies[data['results'][i]['title']] = [data['results'][i]['title'], data['results'][i]['poster_path'], data['results'][i]['id'], fixed_title]
             except:
                 continue
@@ -124,7 +124,7 @@ class Movies:
             if len(movie['results'][count]['title']) > 23:
                 fixed_title = f'''{movie['results'][count]['title'][:20]}..'''
             else:
-                fixed_title = movie['results'][count]['title'][:20]
+                fixed_title = movie['results'][count]['title']
             movies[movie['results'][count]['title']] = [movie['results'][count]['title'], movie['results'][count]['poster_path'], movie['results'][count]['id'], fixed_title]
             count += 1
 
@@ -144,6 +144,32 @@ class Movies:
                     movies[data['results'][i]['flatrate'][0]['provider_name']] = [data['results'][i]['flatrate'][0]['logo_path'], providers[data['results'][i]['flatrate'][0]['provider_name']]]
             
         return movies
-        
 
+class Series:
+    def retrieve_popular_series():
+        urls = [
+            f'https://api.themoviedb.org/3/tv/popular?api_key=937aba2a3907c25e0509540bbe39f3a8&language=pt-br&page={i}' for i in range(50)
+        ]
 
+        session = requests.Session()
+        def get_url(url):
+            response = session.get(url)
+            return response.json()
+
+        series = dict()
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            results = [executor.submit(get_url, url) for url in urls]
+
+            for future in concurrent.futures.as_completed(results):
+                data = future.result()
+                for i in range(19):
+                    try:
+                        if len(data['results'][i]['name']) > 23:
+                            fixed_title = f'''{data['results'][i]['name'][:20]}..'''
+                        else:
+                            fixed_title = data['results'][i]['name']
+                        series[data['results'][i]['name']] = [data['results'][i]['overview'], data['results'][i]['poster_path'], data['results'][i]['first_air_date'], data['results'][i]['id'], fixed_title]
+                    except:
+                        continue
+
+        return series

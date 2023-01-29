@@ -31,7 +31,7 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
     max-width: 300px !important;
     min-height: 450px !important;
     max-height: 450px !important;
-    border-radius: 12px !important;
+    border-radius: 1rem !important;
 }
 
 .movies li:hover{
@@ -131,11 +131,9 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
 .movie-videos::after {
     display: block;
     content: "";
-    padding-top: 56.25%;
 }
 
 .providers {margin-top: 15%; text-align: center;}
-
 
 @media only screen and (max-width: 1800px) {
     .sim_movies { 

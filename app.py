@@ -1,4 +1,4 @@
-from models import Movies
+from models import Movies, Series
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -41,10 +41,19 @@ def by_genre(genre):
                    '878': 'Ficção Científica', '10770': 'Cinema TV', '53': 'Thriller', '10752': 'Guerra', '37': 'Faroeste'}
         return render_template('filtered_genre.html', genre_data=genre_data, genre_name=genre_names[genre])
 
+@app.route('/séries', methods=['GET', 'POST'])
+def popular_series():
+    if request.method == 'POST':
+        movie_name = request.form.get('movie_name')
+        data = Movies.search_movie(movie_name)
+        return render_template('movie_search.html', search_data=data, search=movie_name)
+    elif request.method == 'GET':
+        data = Series.retrieve_popular_series()
+        return render_template('series.html', data=data)
         
 @app.errorhandler(500)
 def not_found(e):
     return render_template('500.html')
 
 if __name__ == '__main__':
-    app.run() 
+    app.run(debug=True) 

@@ -134,10 +134,13 @@ class Movies:
         req = requests.get(f'https://api.themoviedb.org/3/movie/{query}/watch/providers?api_key=937aba2a3907c25e0509540bbe39f3a8')
         data = req.json()
         movies = dict()
-        priority = list(range(1, 5))
+        priority = list(range(1, 4))
         providers = {'HBO Max': 'https://www.hbomax.com/br/pt', 'Sky Go': 'https://www.assinandosky.tv.br/', 'Now TV': 'https://www.clarotvmais.com.br/home-landing', 'Netflix': 'https://www.netflix.com/br/',
                      'TOD': 'https://www.tod.tv/en', 'Google Play Movies': 'https://play.google.com/store/movies?hl=en&gl=US&pli=1', 'Movistar Play': 'https://tv.movistar.com.pe/', 
-                     'Amazon Video': 'https://www.primevideo.com/', 'Amazon Prime Video': 'https://www.primevideo.com/', 'Rakuten TV': 'https://rakuten.tv/pt', 'Chili': 'https://uk.chili.com/'}
+                     'Amazon Video': 'https://www.primevideo.com/', 'Amazon Prime Video': 'https://www.primevideo.com/', 'Rakuten TV': 'https://rakuten.tv/pt', 'Chili': 'https://uk.chili.com/',
+                     'Star Plus': 'https://www.starplus.com/', 'Be TV Go': 'https://www.betv.be/fr/betvgo/', 'blue TV': 'https://bluetvdigital.com.br/', 'Viaplay': 'https://viaplay.se/se-sv/',
+                     'BINGE': 'https://binge.com.au/', 'Canal+': 'https://www.canalplus.com/', 'Paramount Plus': 'https://www.paramountplus.com/br/', 'Claro video': 'https://www.clarovideo.com/',
+                     'Neon TV': 'https://www.neontv.com/'}
         for i in data['results']:
             if 'flatrate' in data['results'][i]:
                 if data['results'][i]['flatrate'][0]['display_priority'] in priority:   

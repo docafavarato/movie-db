@@ -20,19 +20,21 @@
             <p id="movie_release_date">Data de lançamento: {{ data['release_date'] }}</p> 
         </div>
         
-        <div class="container">
-            <h2 id="similar_movies">Filmes semelhantes</h2>
-            <div class="sim_movies">
-                {% for movie in similar %}
-                    {% if similar[movie][1] %}
-                        <li>
-                            <a href="{{ url_for('movie_details', movie_name=similar[movie][2]) }}"><img src="https://image.tmdb.org/t/p/w500/{{ similar[movie][1] }}"></a>
-                            <p>{{ similar[movie][3] }}</p>
-                        </li>
-                    {% endif %}
-                {% endfor %}
+        {% if similar %}
+            <div class="container">
+                <h2 id="similar_movies">Filmes semelhantes</h2>
+                <div class="sim_movies">
+                    {% for movie in similar %}
+                        {% if similar[movie][1] %}
+                            <li>
+                                <a href="{{ url_for('movie_details', movie_name=similar[movie][2]) }}"><img src="https://image.tmdb.org/t/p/w500/{{ similar[movie][1] }}"></a>
+                                <p>{{ similar[movie][3] }}</p>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+        {% endif %}
 
         {% if trailer %}
             <div class="container" id="videocontainer">

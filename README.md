@@ -1,5 +1,8 @@
 # Movie DB
-Site de filmes feito com Flask consumindo a API de https://api.themoviedb.org. Funções:
+
+## About
+> A movie website made with Flask and the <a href="https://api.themoviedb.org">TMDB api</a>
+Site de filmes feito com Flask consumindo a API de. Funções:
 
 - Exibe centenas de filmes da categoria "Popular"
 - Página dinâmica para cada filme com informações sobre o mesmo (Nome, descrição, avaliação, quantidade de avaliações, data de lançamento, vídeos, serviços de streaming)

@@ -1,7 +1,7 @@
 # Movie DB
 
 ## About
-> A movie catálogo website made with Flask and the <a href="https://api.themoviedb.org">TMDB api</a>
+> A movie catalog website made with Flask and the <a href="https://api.themoviedb.org">TMDB api</a>
 
 ## Functions
 > Dynamic pages for each movie containing their name, description, rate, rate amount, release date, videos and where to watch.

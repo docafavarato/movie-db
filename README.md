@@ -10,7 +10,7 @@
 
 > Movie search system
 
-> Genre filter system
+> "Filter by genre" system
 
 ## Images
 > ![1](https://user-images.githubusercontent.com/98183878/215221041-cece34f4-1b12-4a8c-a972-7eec3721b5f6.png)

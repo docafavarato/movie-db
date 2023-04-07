@@ -22,7 +22,10 @@ def movie_details(movie_name):
     if request.method == 'POST':
         movie_name = request.form.get('movie_name')
         data = Movies.search_movie(movie_name)
-        return render_template('movie_search.html', search_data=data, search=movie_name)
+        if data:
+            return render_template('movie_search.html', search_data=data, search=movie_name)
+        else:
+            return render_template('movie_not_found.html', search=movie_name)
         
     elif request.method == 'GET':
         data = Movies.movie_details_(movie_name)

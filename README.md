@@ -2,7 +2,8 @@
 
 ## About
 > A movie catalog website made with Flask and the <a href="https://api.themoviedb.org">TMDB api</a>
-> Link: <a href="https://moviedbdoca.herokuapp.com/"></a>
+
+> Link: <a href="https://moviedbdoca.herokuapp.com/">Movie DB</a>
 
 ## Functions
 > Dynamic pages for each movie containing their name, description, rate, rate amount, release date, videos and where to watch

@@ -15,6 +15,7 @@ body {background-color: rgb(16, 16, 48) !important; font-family: Poppins !import
     flex-wrap: wrap !important;
 }
 
+
 .movies li {
     transition-duration: 0.4s;
     flex: 1 !important;
